@@ -1,17 +1,17 @@
 package smn.practice.practice.smn.library.log;
 
-public class SMNThreadFormatter implements SMNLogFormatter<Thread> {
+public class ThreadFormatter implements LogFormatter<Thread> {
 
 
     /**
      * 单例实例
      */
-    private static volatile SMNThreadFormatter instance;
+    private static volatile ThreadFormatter instance;
 
     /**
      * 私有构造方法，防止外部实例化
      */
-    private SMNThreadFormatter() {
+    private ThreadFormatter() {
     }
 
     /**
@@ -20,11 +20,11 @@ public class SMNThreadFormatter implements SMNLogFormatter<Thread> {
      *
      * @return SMNStackTraceFormatter 单例实例
      */
-    public static SMNThreadFormatter getInstance() {
+    public static ThreadFormatter getInstance() {
         if (instance == null) {
-            synchronized (SMNThreadFormatter.class) {
+            synchronized (ThreadFormatter.class) {
                 if (instance == null) {
-                    instance = new SMNThreadFormatter();
+                    instance = new ThreadFormatter();
                 }
             }
         }

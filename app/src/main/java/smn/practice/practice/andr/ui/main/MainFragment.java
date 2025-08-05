@@ -14,7 +14,8 @@ import android.view.ViewGroup;
 
 import smn.practice.practice.andr.R;
 import smn.practice.practice.andr.databinding.FragmentMainBinding;
-import smn.practice.practice.andr.ui.demo.SMNLogDemoFragment;
+import smn.practice.practice.andr.ui.demo.LogDemoFragment;
+import smn.practice.practice.andr.ui.demo.TabBottomDemoFragment;
 
 public class MainFragment extends Fragment {
 
@@ -47,10 +48,17 @@ public class MainFragment extends Fragment {
         binding.message.setOnClickListener(v -> {
 
             getParentFragmentManager().beginTransaction()
-                    .replace(R.id.container, SMNLogDemoFragment.newInstance())
-                    .addToBackStack("AuthFragment")
+                    .replace(R.id.container, LogDemoFragment.newInstance())
+                    .addToBackStack("SMNLogDemoFragment")
                     .commit();
 
+        });
+
+        binding.tabDemo.setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.container, TabBottomDemoFragment.newInstance())
+                    .addToBackStack("TabBottomDemoFragment")
+                    .commit();
         });
     }
 

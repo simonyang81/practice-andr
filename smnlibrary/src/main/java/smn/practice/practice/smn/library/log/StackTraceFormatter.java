@@ -1,16 +1,16 @@
 package smn.practice.practice.smn.library.log;
 
-public class SMNStackTraceFormatter implements SMNLogFormatter<StackTraceElement[]> {
+public class StackTraceFormatter implements LogFormatter<StackTraceElement[]> {
     
     /**
      * 单例实例
      */
-    private static volatile SMNStackTraceFormatter instance;
+    private static volatile StackTraceFormatter instance;
     
     /**
      * 私有构造方法，防止外部实例化
      */
-    private SMNStackTraceFormatter() {
+    private StackTraceFormatter() {
     }
     
     /**
@@ -19,11 +19,11 @@ public class SMNStackTraceFormatter implements SMNLogFormatter<StackTraceElement
      * 
      * @return SMNStackTraceFormatter 单例实例
      */
-    public static SMNStackTraceFormatter getInstance() {
+    public static StackTraceFormatter getInstance() {
         if (instance == null) {
-            synchronized (SMNStackTraceFormatter.class) {
+            synchronized (StackTraceFormatter.class) {
                 if (instance == null) {
-                    instance = new SMNStackTraceFormatter();
+                    instance = new StackTraceFormatter();
                 }
             }
         }

@@ -70,15 +70,15 @@ public class SMNLog {
     }
 
     public static void log(@SMNLogType.TYPE int type, Object... contents) {
-        log(type, SMNLogManager.getInstance().getConfig().getGlobalTag(), contents);
+        log(type, LogManager.getInstance().getConfig().getGlobalTag(), contents);
     }
 
     public static void log(@SMNLogType.TYPE int type, @NonNull String tag, Object... contents) {
-        log(SMNLogManager.getInstance().getConfig(), type, tag, contents);
+        log(LogManager.getInstance().getConfig(), type, tag, contents);
     }
 
 
-    public static void log(@NonNull SMNLogConfig config, @SMNLogType.TYPE int type, @NonNull String tag, Object... contents) {
+    public static void log(@NonNull LogConfig config, @SMNLogType.TYPE int type, @NonNull String tag, Object... contents) {
 
         if (!config.enable()) {
             return;
@@ -86,12 +86,12 @@ public class SMNLog {
 
         StringBuilder sb = new StringBuilder();
         if (config.includeThread()) {
-            String threadInfo = SMNLogConfig.threadFormatter.format(Thread.currentThread());
+            String threadInfo = LogConfig.threadFormatter.format(Thread.currentThread());
             sb.append(threadInfo).append("\n");
         }
 
         if (config.stackTraceDepth() > 0) {
-            String stackTrace = SMNLogConfig.stackTraceFormatter.format(
+            String stackTrace = LogConfig.stackTraceFormatter.format(
                     StackTraceUtil.getCroppedRealStackTrack(new Throwable().getStackTrace(), SMN_LOG_PACKAGE, config.stackTraceDepth()));
             sb.append(stackTrace).append("\n");
         }
@@ -99,13 +99,13 @@ public class SMNLog {
         String body = parseBody(contents, config);
         sb.append(body);
 
-        List<SMNLogPrinter> printers = config.printers() != null ? Arrays.asList(config.printers()) : SMNLogManager.getInstance().getPrinters();
+        List<LogPrinter> printers = config.printers() != null ? Arrays.asList(config.printers()) : LogManager.getInstance().getPrinters();
 
         if (printers == null) {
             return;
         }
 
-        for (SMNLogPrinter printer : printers) {
+        for (LogPrinter printer : printers) {
             printer.print(config, type, tag, sb.toString());
         }
 
@@ -116,7 +116,7 @@ public class SMNLog {
      * @param contents 要解析的内容数组
      * @return 用分号连接的字符串
      */
-    private static String parseBody(@NonNull Object[] contents, @NonNull SMNLogConfig config) {
+    private static String parseBody(@NonNull Object[] contents, @NonNull LogConfig config) {
 
         if (contents.length == 0) {
             return "";

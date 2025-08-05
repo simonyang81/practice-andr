@@ -18,7 +18,12 @@ public class DisplayUtil {
      * @param resources
      * @return
      */
-    public static int dp2dx(float dp, Resources resources) {
+    public static int dp2px(float dp, Resources resources) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
+    }
+
+    public static int dp2px(float dp) {
+        Resources resources = AppGlobals.get().getResources();
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
     }
 

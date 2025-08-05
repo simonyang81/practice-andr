@@ -4,9 +4,9 @@ import android.app.Application;
 
 import com.google.gson.Gson;
 
-import smn.practice.practice.smn.library.log.SMNConsolePrinter;
-import smn.practice.practice.smn.library.log.SMNLogConfig;
-import smn.practice.practice.smn.library.log.SMNLogManager;
+import smn.practice.practice.smn.library.log.ConsolePrinter;
+import smn.practice.practice.smn.library.log.LogConfig;
+import smn.practice.practice.smn.library.log.LogManager;
 
 public class MyApplication extends Application {
 
@@ -14,7 +14,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        SMNLogManager.init(new SMNLogConfig() {
+        LogManager.init(new LogConfig() {
 
             @Override
             public JsonParser injectJsonParser() {
@@ -31,7 +31,7 @@ public class MyApplication extends Application {
                 return true;
             }
 
-        }, new SMNConsolePrinter());
+        }, new ConsolePrinter());
 
     }
 }

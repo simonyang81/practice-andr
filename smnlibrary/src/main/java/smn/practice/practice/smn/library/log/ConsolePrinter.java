@@ -1,14 +1,14 @@
 package smn.practice.practice.smn.library.log;
 
-import static smn.practice.practice.smn.library.log.SMNLogConfig.MAX_LEN;
+import static smn.practice.practice.smn.library.log.LogConfig.MAX_LEN;
 
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-public class SMNConsolePrinter implements SMNLogPrinter {
+public class ConsolePrinter implements LogPrinter {
     @Override
-    public void print(@NonNull SMNLogConfig config, int level, String tag, @NonNull String printString) {
+    public void print(@NonNull LogConfig config, int level, String tag, @NonNull String printString) {
         int len = printString.length();
         int countOfSub = len / MAX_LEN;
 

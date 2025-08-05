@@ -3,7 +3,7 @@ package smn.practice.practice.smn.library.log;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-public class SMNLogModel {
+public class LogModel {
 
     private static SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd HH:mm:ss", Locale.CHINA);
 
@@ -12,7 +12,7 @@ public class SMNLogModel {
     public String tag;
     public String log;
 
-    public SMNLogModel(long timeMillis, int level, String tag, String log) {
+    public LogModel(long timeMillis, int level, String tag, String log) {
         this.timeMillis = timeMillis;
         this.level = level;
         this.tag = tag;

@@ -8,37 +8,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import smn.practice.practice.andr.R;
 import smn.practice.practice.andr.databinding.FragmentLogDemoBinding;
 import smn.practice.practice.smn.library.log.SMNLog;
-import smn.practice.practice.smn.library.log.SMNLogConfig;
-import smn.practice.practice.smn.library.log.SMNLogManager;
+import smn.practice.practice.smn.library.log.LogConfig;
+import smn.practice.practice.smn.library.log.LogManager;
 import smn.practice.practice.smn.library.log.SMNLogType;
-import smn.practice.practice.smn.library.log.SMNViewPrinter;
-import smn.practice.practice.smn.library.log.SMNViewPrinterProvider;
+import smn.practice.practice.smn.library.log.ViewPrinter;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SMNLogDemoFragment#newInstance} factory method to
+ * Use the {@link LogDemoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SMNLogDemoFragment extends Fragment {
+public class LogDemoFragment extends Fragment {
 
     private FragmentLogDemoBinding binding;
 
-    private SMNViewPrinter viewPrinter;
+    private ViewPrinter viewPrinter;
 
-    private SMNLogDemoFragment() {
+    private LogDemoFragment() {
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment SMNLogDemoFragment.
-     */
-    public static SMNLogDemoFragment newInstance() {
-        return new SMNLogDemoFragment();
+    public static LogDemoFragment newInstance() {
+        return new LogDemoFragment();
     }
 
     @Override
@@ -49,24 +41,23 @@ public class SMNLogDemoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         binding = FragmentLogDemoBinding.inflate(inflater, container, false);
-
-        viewPrinter = new SMNViewPrinter(this.getActivity());
-        viewPrinter.getViewProvider().showFloatingView();
-
+        initViews();
         setupClickListeners();
 
         return binding.getRoot();
     }
 
+    private void initViews() {
+        viewPrinter = new ViewPrinter(this.getActivity());
+        viewPrinter.getViewProvider().showFloatingView();
+        LogManager.getInstance().addPrinter(viewPrinter);
+    }
 
     private void setupClickListeners() {
         binding.printLogBtn.setOnClickListener(v -> {
 
-            SMNLogManager.getInstance().addPrinter(viewPrinter);
-
-            SMNLog.log(new SMNLogConfig() {
+            SMNLog.log(new LogConfig() {
 
                 @Override
                 public boolean includeThread() {
@@ -79,7 +70,7 @@ public class SMNLogDemoFragment extends Fragment {
                 }
 
             }, SMNLogType.E, "----", "5566");
-
+//
             SMNLog.a("9900");
         });
     }

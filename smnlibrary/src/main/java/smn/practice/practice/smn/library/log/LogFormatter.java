@@ -1,6 +1,6 @@
 package smn.practice.practice.smn.library.log;
 
-public interface SMNLogFormatter<T> {
+public interface LogFormatter<T> {
     String format(T data);
 
 }

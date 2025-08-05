@@ -2,4 +2,20 @@
     <string name="app_name">Practice-Andr</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    <!-- Tab Icons -->
+    <string name="if_home">&#xe8c6;</string>
+    <string name="if_recommend">&#xe63f;</string>
+    <string name="if_chat">&#xe63c;</string>
+    <string name="if_profile">&#xe634;</string>
+    <string name="if_category">&#xf00a6;</string>
+    <string name="if_favorite">&#xe639;</string>
+    <string name="if_favorite1">&#xe620;</string>
+    
+    <!-- Tab Labels -->
+    <string name="tab_home">首页</string>
+    <string name="tab_favorite">收藏</string>
+    <string name="tab_category">分类</string>
+    <string name="tab_recommend">推荐</string>
+    <string name="tab_profile">我的</string>
 </resources>

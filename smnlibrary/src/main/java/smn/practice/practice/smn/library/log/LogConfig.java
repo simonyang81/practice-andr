@@ -1,11 +1,11 @@
 package smn.practice.practice.smn.library.log;
 
-public abstract class SMNLogConfig {
+public abstract class LogConfig {
 
     public static int MAX_LEN = 512;
 
-    protected static SMNThreadFormatter threadFormatter = SMNThreadFormatter.getInstance();
-    protected static SMNStackTraceFormatter stackTraceFormatter = SMNStackTraceFormatter.getInstance();
+    protected static ThreadFormatter threadFormatter = ThreadFormatter.getInstance();
+    protected static StackTraceFormatter stackTraceFormatter = StackTraceFormatter.getInstance();
 
     public JsonParser injectJsonParser() {
         return null;
@@ -28,7 +28,7 @@ public abstract class SMNLogConfig {
         return 5;
     }
 
-    public SMNLogPrinter[] printers() {
+    public LogPrinter[] printers() {
         return null;
     }
 
