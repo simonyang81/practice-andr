@@ -7,15 +7,19 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.FrameLayout;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import smn.practice.practice.smn.library.utils.DisplayUtil;
+import smn.practice.practice.smn.library.utils.ViewUtil;
 import smn.practice.practice.smnui.R;
 import smn.practice.practice.smnui.tab.common.ITabLayout;
 
@@ -157,6 +161,7 @@ public class TabBottomLayout extends FrameLayout implements ITabLayout<TabBottom
 
         view.setAlpha(bottomAlpha);
         addView(view, params);
+        adjustContentPadding();
 
     }
 
@@ -191,4 +196,35 @@ public class TabBottomLayout extends FrameLayout implements ITabLayout<TabBottom
     public int getTabHeightPx() {
         return DisplayUtil.dp2px(tabBottomHeight, getResources());
     }
+
+    /**
+     * 增加底部padding
+     */
+    private void adjustContentPadding() {
+
+        if (!(getChildAt(0) instanceof ViewGroup)) {    // 单节点
+            return;
+        }
+
+        ViewGroup rootView = (ViewGroup) getChildAt(0);
+
+        ViewGroup targetView = ViewUtil.findTypeView(rootView, RecyclerView.class);
+
+        if (targetView == null) {
+            targetView = ViewUtil.findTypeView(rootView, ScrollView.class);
+        }
+
+        if (targetView == null) {
+            targetView = ViewUtil.findTypeView(rootView, AbsListView.class);
+        }
+
+        if (targetView != null) {
+            targetView.setPadding(0, 0, 0, DisplayUtil.dp2px(tabBottomHeight, getResources()));
+            targetView.setClipToPadding(false);
+        }
+
+
+    }
+
+
 }

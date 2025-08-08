@@ -57,7 +57,6 @@ public class TabBottomDemoFragment extends Fragment {
 
     private void initViews() {
         initTabBottom();
-        adjustContentPadding();
     }
 
     /**
@@ -77,22 +76,6 @@ public class TabBottomDemoFragment extends Fragment {
         tabLayout.defaultSelected(bottomInfoList.get(0));
     }
 
-    private void adjustContentPadding() {
-
-        ScrollView scrollView = binding.sv;
-
-        int tabHeightPx = binding.smnTabLayout.getTabHeightPx();
-
-        scrollView.setPadding(
-                scrollView.getPaddingLeft(),
-                scrollView.getPaddingTop(),
-                scrollView.getPaddingRight(),
-                tabHeightPx
-        );
-        scrollView.setClipToPadding(false);
-
-    }
-    
     /**
      * 创建标签信息列表
      * 使用数据驱动的方式，将标签配置集中管理
