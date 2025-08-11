@@ -100,7 +100,7 @@ public class TabBottom extends RelativeLayout implements ITab<TabBottomInfo<?>> 
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.height = height;
         setLayoutParams(layoutParams);
-        getTabImageView().setVisibility(GONE);
+        getTabNameView().setVisibility(GONE);
     }
 
     @Override

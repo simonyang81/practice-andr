@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -74,6 +73,7 @@ public class TabBottomDemoFragment extends Fragment {
             Toast.makeText(getContext(), nextInfo.name, Toast.LENGTH_SHORT).show();
         });
         tabLayout.defaultSelected(bottomInfoList.get(0));
+
     }
 
     /**
@@ -105,7 +105,7 @@ public class TabBottomDemoFragment extends Fragment {
             );
             tabInfoList.add(tabInfo);
         }
-        
+
         return tabInfoList;
     }
     
