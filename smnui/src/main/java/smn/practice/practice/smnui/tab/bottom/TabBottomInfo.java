@@ -40,4 +40,5 @@ public class TabBottomInfo<Color> {
         this.tabType = TabType.ICON;
     }
 
+
 }

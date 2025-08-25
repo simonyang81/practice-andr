@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import smn.practice.practice.andr.databinding.FragmentLogDemoBinding;
+import smn.practice.practice.common.ui.component.BaseFragment;
 import smn.practice.practice.smn.library.log.SMNLog;
 import smn.practice.practice.smn.library.log.LogConfig;
 import smn.practice.practice.smn.library.log.LogManager;
@@ -20,7 +21,7 @@ import smn.practice.practice.smn.library.log.ViewPrinter;
  * Use the {@link LogDemoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LogDemoFragment extends Fragment {
+public class LogDemoFragment extends BaseFragment {
 
     private FragmentLogDemoBinding binding;
 

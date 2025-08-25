@@ -4,11 +4,12 @@ import android.app.Application;
 
 import com.google.gson.Gson;
 
+import smn.practice.practice.common.ui.component.BaseApplication;
 import smn.practice.practice.smn.library.log.ConsolePrinter;
 import smn.practice.practice.smn.library.log.LogConfig;
 import smn.practice.practice.smn.library.log.LogManager;
 
-public class MyApplication extends Application {
+public class MyApplication extends BaseApplication {
 
     @Override
     public void onCreate() {

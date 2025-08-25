@@ -20,6 +20,7 @@ navigationUi = "2.9.0"
 retrofit = "3.0.0"
 rxjava = "3.1.11"
 rxandroid = "3.0.2"
+activity = "1.8.0"
 
 [libraries]
 adapter-rxjava3 = { module = "com.squareup.retrofit2:adapter-rxjava3", version.ref = "retrofit" }
@@ -45,6 +46,7 @@ navigation-fragment = { module = "androidx.navigation:navigation-fragment", vers
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
 rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

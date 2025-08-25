@@ -73,7 +73,6 @@ public class TabBottomDemoFragment extends Fragment {
             Toast.makeText(getContext(), nextInfo.name, Toast.LENGTH_SHORT).show();
         });
         tabLayout.defaultSelected(bottomInfoList.get(0));
-
     }
 
     /**

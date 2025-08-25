@@ -23,3 +23,4 @@ rootProject.name = "Practice-Andr"
 include ':app'
 include ':smnlibrary'
 include ':smnui'
+include ':common'

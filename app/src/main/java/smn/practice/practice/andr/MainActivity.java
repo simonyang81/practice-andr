@@ -1,59 +1,32 @@
 package smn.practice.practice.andr;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.core.view.WindowCompat;
-
 import android.os.Bundle;
+import android.view.View;
 
-import smn.practice.practice.andr.ui.main.MainFragment;
+import smn.practice.practice.andr.logic.MainActivityLogic;
+import smn.practice.practice.common.ui.component.BaseActivity;
 
 /**
- * 主Activity - 支持边到边显示和安全区域处理
+ * 主Activity
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity implements MainActivityLogic.ActivityProvider {
+
+    private MainActivityLogic activityLogic;
+
+    @Override
+    public View getRootView() {
+        return findViewById(R.id.container);
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        // 启用边到边显示，让内容延伸到系统栏区域
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
-        
-        setContentView(R.layout.activity_main);
-        
-        // 处理系统栏的插入边距
-        setupWindowInsets();
-        
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
-                    .commitNow();
-        }
+        this.activityLogic = new MainActivityLogic(this);
     }
     
-    /**
-     * 设置窗口插入边距处理
-     * 确保内容不被系统UI遮挡
-     */
-    private void setupWindowInsets() {
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.container), 
-            (view, windowInsets) -> {
-                // 获取系统栏的插入边距
-                androidx.core.graphics.Insets systemBars = windowInsets.getInsets(
-                    WindowInsetsCompat.Type.systemBars()
-                );
-                
-                // 应用边距，避免内容被系统UI遮挡
-                view.setPadding(
-                    systemBars.left,    // 左侧安全区域
-                    systemBars.top,     // 顶部状态栏
-                    systemBars.right,   // 右侧安全区域  
-                    systemBars.bottom   // 底部导航栏/手势区域
-                );
-                
-                return windowInsets;
-            });
-    }
 }
