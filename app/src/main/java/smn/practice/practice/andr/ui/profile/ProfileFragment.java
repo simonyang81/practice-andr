@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import smn.practice.practice.andr.databinding.FragmentProfileBinding;
 import smn.practice.practice.common.ui.component.BaseFragment;
 
-public class ProfilePageFragment extends BaseFragment {
+public class ProfileFragment extends BaseFragment {
 
     private FragmentProfileBinding binding;
 

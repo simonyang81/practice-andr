@@ -1,29 +1,23 @@
-package smn.practice.practice.andr.ui.home;
+package smn.practice.practice.andr.ui.recommend;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import smn.practice.practice.andr.databinding.FragmentHomeBinding;
+import smn.practice.practice.andr.databinding.FragmentRecommendBinding;
 import smn.practice.practice.common.ui.component.BaseFragment;
-import smn.practice.practice.smn.library.log.SMNLog;
 
-public class HomePageFragment extends BaseFragment {
+public class RecommendFragment extends BaseFragment {
 
-    private FragmentHomeBinding binding;
-
+    private FragmentRecommendBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        SMNLog.i("-->> onCreateView");
-
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentRecommendBinding.inflate(inflater, container, false);
 
         return binding.getRoot();
     }
-
 
 }

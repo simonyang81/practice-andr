@@ -1,24 +1,29 @@
-package smn.practice.practice.andr.ui.favorite;
+package smn.practice.practice.andr.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import smn.practice.practice.andr.databinding.FragmentFavoriteBinding;
+import smn.practice.practice.andr.databinding.FragmentHomeBinding;
 import smn.practice.practice.common.ui.component.BaseFragment;
+import smn.practice.practice.smn.library.log.SMNLog;
 
-public class FavoritePageFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment {
 
-    private FragmentFavoriteBinding binding;
+    private FragmentHomeBinding binding;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentFavoriteBinding.inflate(inflater, container, false);
+
+        SMNLog.i("-->> onCreateView");
+
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
 
         return binding.getRoot();
     }
+
 
 }

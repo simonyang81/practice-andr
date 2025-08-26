@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import smn.practice.practice.andr.databinding.FragmentCategoryBinding;
 import smn.practice.practice.common.ui.component.BaseFragment;
 
-public class CategoryPageFragment extends BaseFragment {
+public class CategoryFragment extends BaseFragment {
 
     private FragmentCategoryBinding binding;
 

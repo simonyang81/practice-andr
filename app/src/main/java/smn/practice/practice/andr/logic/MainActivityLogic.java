@@ -3,8 +3,10 @@ package smn.practice.practice.andr.logic;
 import static java.security.AccessController.getContext;
 
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.FragmentManager;
 
@@ -12,11 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import smn.practice.practice.andr.R;
-import smn.practice.practice.andr.ui.category.CategoryPageFragment;
-import smn.practice.practice.andr.ui.favorite.FavoritePageFragment;
-import smn.practice.practice.andr.ui.home.HomePageFragment;
-import smn.practice.practice.andr.ui.profile.ProfilePageFragment;
-import smn.practice.practice.andr.ui.recommend.RecommendPageFragment;
+import smn.practice.practice.andr.ui.category.CategoryFragment;
+import smn.practice.practice.andr.ui.favorite.FavoriteFragment;
+import smn.practice.practice.andr.ui.home.HomeFragment;
+import smn.practice.practice.andr.ui.profile.ProfileFragment;
+import smn.practice.practice.andr.ui.recommend.RecommendFragment;
 import smn.practice.practice.common.tab.FragmentTabView;
 import smn.practice.practice.common.tab.TabViewAdapter;
 import smn.practice.practice.smnui.tab.bottom.TabBottomInfo;
@@ -32,13 +34,16 @@ public class MainActivityLogic {
     private List<TabBottomInfo<?>> infoList;
     private ActivityProvider activityProvider;
     private final static String SAVED_CURRENT_ID = "SAVED_CURRENT_ID";
-    private static final String ICON_FONT_PATH = "fonts/iconfont.ttf";
+    private final static String ICON_FONT_PATH = "fonts/iconfont.ttf";
     private int currentItemIndex;
 
     private static final float TAB_ALPHA = 1f;
 
-    public MainActivityLogic(ActivityProvider activityProvider) {
+    public MainActivityLogic(ActivityProvider activityProvider, Bundle savedInstanceState) {
         this.activityProvider = activityProvider;
+        if (savedInstanceState != null) {
+            currentItemIndex = savedInstanceState.getInt(SAVED_CURRENT_ID);
+        }
         initTabBottom();
     }
 
@@ -73,7 +78,7 @@ public class MainActivityLogic {
             fragmentTabView.setCurrentItem(index);
             MainActivityLogic.this.currentItemIndex = index;
         });
-        tabBottomLayout.defaultSelected(infoList.get(0));
+        tabBottomLayout.defaultSelected(infoList.get(currentItemIndex));
     }
 
     private List<TabBottomInfo<?>> createTabInfoList() {
@@ -101,15 +106,15 @@ public class MainActivityLogic {
             );
 
             if (i == 0) {
-                tabInfo.fragment = HomePageFragment.class;
+                tabInfo.fragment = HomeFragment.class;
             } else if (i == 1) {
-                tabInfo.fragment = FavoritePageFragment.class;
+                tabInfo.fragment = FavoriteFragment.class;
             } else if (i == 2) {
-                tabInfo.fragment = CategoryPageFragment.class;
+                tabInfo.fragment = CategoryFragment.class;
             } else if (i == 3) {
-                tabInfo.fragment = RecommendPageFragment.class;
+                tabInfo.fragment = RecommendFragment.class;
             } else {
-                tabInfo.fragment = ProfilePageFragment.class;
+                tabInfo.fragment = ProfileFragment.class;
             }
 
 
@@ -143,6 +148,10 @@ public class MainActivityLogic {
             return String.format("#%08X", color);
         }
         return "#ff656667"; // 默认颜色
+    }
+
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putInt(SAVED_CURRENT_ID, currentItemIndex);
     }
 
 }
