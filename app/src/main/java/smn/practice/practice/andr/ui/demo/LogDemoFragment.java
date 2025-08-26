@@ -16,23 +16,11 @@ import smn.practice.practice.smn.library.log.LogManager;
 import smn.practice.practice.smn.library.log.SMNLogType;
 import smn.practice.practice.smn.library.log.ViewPrinter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link LogDemoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class LogDemoFragment extends BaseFragment {
 
     private FragmentLogDemoBinding binding;
 
     private ViewPrinter viewPrinter;
-
-    private LogDemoFragment() {
-    }
-
-    public static LogDemoFragment newInstance() {
-        return new LogDemoFragment();
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

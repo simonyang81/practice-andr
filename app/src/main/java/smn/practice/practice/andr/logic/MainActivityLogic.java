@@ -15,6 +15,7 @@ import java.util.List;
 
 import smn.practice.practice.andr.R;
 import smn.practice.practice.andr.ui.category.CategoryFragment;
+import smn.practice.practice.andr.ui.demo.LogDemoFragment;
 import smn.practice.practice.andr.ui.favorite.FavoriteFragment;
 import smn.practice.practice.andr.ui.home.HomeFragment;
 import smn.practice.practice.andr.ui.profile.ProfileFragment;
