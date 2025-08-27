@@ -94,9 +94,9 @@ public class TabBottomLayout extends FrameLayout implements ITabLayout<TabBottom
         }
 
         selectedInfo = null;
+        addBackground();
         tabSelectedChangeListeners.removeIf(tabBottomInfoOnTabSelectedListener -> tabBottomInfoOnTabSelectedListener instanceof TabBottom);
 
-        addBackground();
         FrameLayout frameLayout = new FrameLayout(getContext());
         frameLayout.setTag(TAG_TAB_BOTTOM);
         int width = DisplayUtil.getDisplayWidthInPx(getContext()) / infoList.size();

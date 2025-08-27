@@ -11,4 +11,7 @@
     <!-- Tab Bottom Colors -->
     <color name="tab_default_color">#ff656667</color>
     <color name="tab_selected_color">#ffd44949</color>
+
+
+
 </resources>
