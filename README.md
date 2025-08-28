@@ -15,4 +15,15 @@
     <td align="center">顶部导航组件</td>
     <td align="center">日志组件</td>
   </tr>
+
+<tr>
+    <td><img src="screenshots/refresh_demo.png.png" width=270 height=480></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center">下拉刷新</td>
+    <td align="center">&nbsp;</td>
+    <td align="center">&nbsp;</td>
+  </tr>
 </table>

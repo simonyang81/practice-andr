@@ -84,8 +84,8 @@ public class TabBottomDemoFragment extends Fragment {
         // 标签配置数据：{标签名资源ID, 图标资源ID}
         int[][] tabConfigs = {
                 {R.string.tab_home, R.string.if_home},
-                {R.string.tab_favorite, R.string.if_favorite},
-                {R.string.tab_category, R.string.if_category},
+                {R.string.tab_top_tab, R.string.if_top_tap},
+                {R.string.tab_refresh, R.string.if_refresh},
                 {R.string.tab_recommend, R.string.if_recommend},
                 {R.string.tab_profile, R.string.if_profile}
         };

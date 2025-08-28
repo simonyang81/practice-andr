@@ -8,14 +8,14 @@
     <string name="if_recommend">&#xe63f;</string>
     <string name="if_chat">&#xe63c;</string>
     <string name="if_profile">&#xe634;</string>
-    <string name="if_category">&#xf00a6;</string>
-    <string name="if_favorite">&#xe639;</string>
+    <string name="if_top_tap">&#xe639;</string>
+    <string name="if_refresh">&#xf00a6;</string>
     <string name="if_favorite1">&#xe620;</string>
     
     <!-- Tab Labels -->
     <string name="tab_home">首页</string>
-    <string name="tab_favorite">收藏</string>
-    <string name="tab_category">分类</string>
+    <string name="tab_top_tab">顶部tab</string>
+    <string name="tab_refresh">下拉刷新</string>
     <string name="tab_recommend">推荐</string>
     <string name="tab_profile">我的</string>
 </resources>

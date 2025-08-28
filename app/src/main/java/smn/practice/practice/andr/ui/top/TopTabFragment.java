@@ -1,4 +1,4 @@
-package smn.practice.practice.andr.ui.category;
+package smn.practice.practice.andr.ui.top;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,23 +9,23 @@ import android.widget.Toast;
 import java.util.*;
 
 import smn.practice.practice.andr.R;
-import smn.practice.practice.andr.databinding.FragmentCategoryBinding;
+import smn.practice.practice.andr.databinding.FragmentTopTabBinding;
 import smn.practice.practice.common.ui.component.BaseFragment;
 import smn.practice.practice.smnui.tab.top.TabTopInfo;
 import smn.practice.practice.smnui.tab.top.TabTopLayout;
 
-public class CategoryFragment extends BaseFragment {
+public class TopTabFragment extends BaseFragment {
 
     String[] tabs = new String[] {
             "热门", "服装", "数码", "鞋子", "零食", "家电", "汽车", "百货", "家居", "装修", "运动"
     };
 
-    private FragmentCategoryBinding binding;
+    private FragmentTopTabBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentCategoryBinding.inflate(inflater, container, false);
+        binding = FragmentTopTabBinding.inflate(inflater, container, false);
 
         initTabTop();
 
@@ -45,7 +45,7 @@ public class CategoryFragment extends BaseFragment {
 
         tabTopLayout.inflateInfo(infoList);
         tabTopLayout.addTabSelectedChangeListener((index, preInfo, nextInfo)
-                -> Toast.makeText(CategoryFragment.this.getContext(), nextInfo.name, Toast.LENGTH_SHORT).show());
+                -> Toast.makeText(TopTabFragment.this.getContext(), nextInfo.name, Toast.LENGTH_SHORT).show());
 
         tabTopLayout.defaultSelected(infoList.get(0));
 

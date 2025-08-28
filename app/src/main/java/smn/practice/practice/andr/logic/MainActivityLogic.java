@@ -14,8 +14,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import smn.practice.practice.andr.R;
-import smn.practice.practice.andr.ui.category.CategoryFragment;
-import smn.practice.practice.andr.ui.favorite.FavoriteFragment;
+import smn.practice.practice.andr.ui.top.TopTabFragment;
+import smn.practice.practice.andr.ui.refresh.RefreshFragment;
 import smn.practice.practice.andr.ui.home.HomeFragment;
 import smn.practice.practice.andr.ui.profile.ProfileFragment;
 import smn.practice.practice.andr.ui.recommend.RecommendFragment;
@@ -66,8 +66,8 @@ public class MainActivityLogic {
 
     private static final List<TabConfig> TAB_CONFIGS = Arrays.asList(
             new TabConfig(R.string.tab_home, R.string.if_home, HomeFragment.class),
-            new TabConfig(R.string.tab_favorite, R.string.if_favorite, FavoriteFragment.class),
-            new TabConfig(R.string.tab_category, R.string.if_category, CategoryFragment.class),
+            new TabConfig(R.string.tab_top_tab, R.string.if_top_tap, TopTabFragment.class),
+            new TabConfig(R.string.tab_refresh, R.string.if_refresh, RefreshFragment.class),
             new TabConfig(R.string.tab_recommend, R.string.if_recommend, RecommendFragment.class),
             new TabConfig(R.string.tab_profile, R.string.if_profile, ProfileFragment.class)
     );
