@@ -17,7 +17,7 @@
   </tr>
 
 <tr>
-    <td><img src="screenshots/refresh_demo.png.png" width=270 height=480></td>
+    <td><img src="screenshots/refresh_demo.png" width=270 height=480></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
