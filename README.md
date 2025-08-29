@@ -11,9 +11,9 @@
     <td align="center">日志组件</td>
   </tr>
   <tr>
-    <td><img src="screenshots/bottom_tabs.png" width=270 height=480></td>
-    <td><img src="screenshots/top_tabs.png" width=270 height=480></td>
-    <td><img src="screenshots/log_demo.png" width=270 height=480></td>
+    <td><img src="screenshots/bottom_tabs.png" width=249 height=480></td>
+    <td><img src="screenshots/top_tabs.png" width=249 height=480></td>
+    <td><img src="screenshots/log_demo.png" width=249 height=480></td>
   </tr>
   
 <tr>
@@ -22,7 +22,7 @@
     <td align="center">&nbsp;</td>
   </tr>
 <tr>
-    <td><img src="screenshots/refresh_demo.png" width=270 height=480></td>
+    <td><img src="screenshots/refresh_demo.png" width=249 height=480></td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
