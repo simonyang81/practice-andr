@@ -18,13 +18,13 @@
   
 <tr>
     <td align="center">下拉刷新</td>
-    <td align="center">&nbsp;</td>
-    <td align="center">&nbsp;</td>
+    <td align="center">Banner(圆点指示器)</td>
+    <td align="center">Banner(数字指示器)</td>
   </tr>
 <tr>
     <td><img src="screenshots/refresh_demo.png" width=249 height=480></td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td><img src="screenshots/banner02.png" width=249 height=480></td>
+    <td><img src="screenshots/banner01.png" width=249 height=480></td>
   </tr>
   
 </table>
