@@ -1,114 +1,102 @@
-package smn.practice.practice.smnui.banner.indicator;
+package smn.practice.practice.smnui.banner.indicator
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.Gravity;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import smn.practice.practice.smn.library.utils.DisplayUtil;
-import smn.practice.practice.smnui.R;
+import android.content.Context
+import android.util.AttributeSet
+import android.view.Gravity
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.annotation.DrawableRes
+import smn.practice.practice.smn.library.utils.DisplayUtil
+import smn.practice.practice.smnui.R
 
 /**
  * Banner 的圆形指示器
  */
-public class SMNCircleIndicator extends FrameLayout implements SMNIndicator<FrameLayout> {
+class SMNCircleIndicator @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0,
+) : FrameLayout(context, attrs, defStyleAttr), SMNIndicator<FrameLayout> {
 
-    private static final int VWC = ViewGroup.LayoutParams.WRAP_CONTENT;
+    companion object {
+        private const val VWC = LayoutParams.WRAP_CONTENT
+    }
 
-    private @DrawableRes int mPointNormal = R.drawable.shape_point_normal;
-    private @DrawableRes int mPointSelect = R.drawable.shape_point_select;
+    @DrawableRes
+    private val mPointNormal = R.drawable.shape_point_normal
+
+    @DrawableRes
+    private val mPointSelect = R.drawable.shape_point_select
 
     // 指示点左右间距
-    private int mPointLeftRightPadding;
+    private var mPointLeftRightPadding = 0
 
     // 指示点上下间距
-    private int mPointTopBottomPadding;
+    private var mPointTopBottomPadding = 0
 
-    public SMNCircleIndicator(@NonNull Context context) {
-        this(context, null);
+
+    init {
+        mPointLeftRightPadding = DisplayUtil.dp2px(5.0.toFloat(), getContext().resources)
+        mPointTopBottomPadding = DisplayUtil.dp2px(15.toFloat(), getContext().resources)
     }
 
-    public SMNCircleIndicator(@NonNull Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs, 0);
+
+    override fun get(): FrameLayout? {
+        return this
     }
 
-    public SMNCircleIndicator(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        this.init();
-    }
-
-    private void init() {
-        mPointLeftRightPadding = DisplayUtil.dp2px(5, getContext().getResources());
-        mPointTopBottomPadding = DisplayUtil.dp2px(15, getContext().getResources());
-    }
-
-    @Override
-    public FrameLayout get() {
-        return this;
-    }
-
-    @Override
-    public void onInflate(int counter) {
-        removeAllViews();
+    override fun onInflate(counter: Int) {
+        super.removeAllViews()
         if (counter <= 0) {
-            return;
+            return
         }
 
-        LinearLayout groupView = new LinearLayout(getContext());
-        groupView.setOrientation(LinearLayout.HORIZONTAL);
+        val groupView = LinearLayout(context)
+        groupView.orientation = LinearLayout.HORIZONTAL
 
-        LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(VWC, VWC);
-        imageParams.gravity = Gravity.CENTER_VERTICAL;
-        imageParams.setMargins(mPointLeftRightPadding, mPointTopBottomPadding, mPointLeftRightPadding, mPointTopBottomPadding);
+        val imageParams = LinearLayout.LayoutParams(VWC, VWC)
+        imageParams.gravity = Gravity.CENTER_VERTICAL
 
-        for (int i = 0; i < counter; i++) {
-            ImageView imageView = new ImageView(getContext());
-            imageView.setLayoutParams(imageParams);
+        imageParams.setMargins(mPointLeftRightPadding, mPointTopBottomPadding, mPointLeftRightPadding, mPointTopBottomPadding)
+
+        for (i in 0 until counter) {
+            val imageView = ImageView(context)
+            imageView.layoutParams = imageParams
+
 
             if (i == 0) {
-                imageView.setImageResource(mPointSelect);
+                imageView.setImageResource(mPointSelect)
             } else {
-                imageView.setImageResource(mPointNormal);
+                imageView.setImageResource(mPointNormal)
             }
 
-            groupView.addView(imageView);
+            groupView.addView(imageView)
 
         }
 
-        LayoutParams groupViewParams = new LayoutParams(VWC, VWC);
-        groupViewParams.gravity = Gravity.CENTER | Gravity.BOTTOM;
+        val groupViewParams = LayoutParams(VWC, VWC)
+        groupViewParams.gravity = Gravity.CENTER or Gravity.BOTTOM
 
-        addView(groupView, groupViewParams);
+        addView(groupView, groupViewParams)
 
     }
 
-    @Override
-    public void onPointChange(int current, int counter) {
+    override fun onPointChange(current: Int, counter: Int) {
 
-       ViewGroup viewGroup = (ViewGroup) getChildAt(0);
+        val viewGroup: ViewGroup = getChildAt(0) as ViewGroup
 
-        for (int i = 0; i < viewGroup.getChildCount(); i++) {
-
-            ImageView imageView = (ImageView) viewGroup.getChildAt(i);
-
+        for (i in 0 until viewGroup.childCount) {
+            val imageView: ImageView = viewGroup.getChildAt(i) as ImageView
             if (i == current) {
-                imageView.setImageResource(mPointSelect);
+                imageView.setImageResource(mPointSelect)
             } else {
-                imageView.setImageResource(mPointNormal);
+                imageView.setImageResource(mPointNormal)
             }
 
-            imageView.requestLayout();
+            imageView.requestLayout()
 
         }
 
     }
-
 
 }
