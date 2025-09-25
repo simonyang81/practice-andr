@@ -16,6 +16,7 @@ import smn.practice.practice.smnui.banner.core.BannerAdapter.BannerViewHolder
 import smn.practice.practice.smnui.banner.core.BannerModel
 import smn.practice.practice.smnui.banner.indicator.SMNCircleIndicator
 import smn.practice.practice.smnui.banner.indicator.SMNIndicator
+import smn.practice.practice.smnui.banner.indicator.SMNNumberIndicator
 
 class HomeFragment : BaseFragment() {
     private val urls = arrayOf(
@@ -43,7 +44,9 @@ class HomeFragment : BaseFragment() {
     ): View? {
         SMNLog.i("-->> onCreateView")
 
-        indicator = SMNCircleIndicator(requireContext())
+//        indicator = SMNCircleIndicator(requireContext())
+
+        indicator = SMNNumberIndicator(requireContext())
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         initView(indicator, false)

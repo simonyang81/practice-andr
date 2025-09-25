@@ -1,17 +1,16 @@
-package smn.practice.practice.smnui.banner.indicator;
+package smn.practice.practice.smnui.banner.indicator
 
-import android.view.View;
+import android.view.View
 
-public interface SMNIndicator<T extends View> {
-
-    T get();
+interface SMNIndicator<T : View?> {
+    fun get(): T?
 
     /**
      * 初始化Indicator
      *
      * @param counter 幻灯片的数量
      */
-    void onInflate(int counter);
+    fun onInflate(counter: Int)
 
     /**
      * 幻灯片切换的回调
@@ -19,7 +18,5 @@ public interface SMNIndicator<T extends View> {
      * @param current 切换到的幻灯片的位置
      * @param counter 幻灯片的数量
      */
-    void onPointChange(int current, int counter);
-
-
+    fun onPointChange(current: Int, counter: Int)
 }
