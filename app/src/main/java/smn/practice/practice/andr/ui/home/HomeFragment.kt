@@ -1,6 +1,7 @@
 package smn.practice.practice.andr.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,6 +50,17 @@ class HomeFragment : BaseFragment() {
         indicator = SMNNumberIndicator(requireContext())
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        binding?.autoPlay?.let {
+            Log.e("onCreateView", "${it.width} -- ${it.height}")
+            it.post {
+                Log.e("onCreateView:post", "${binding?.autoPlay?.width} -- ${binding?.autoPlay?.height}")
+            }
+            it.viewTreeObserver?.addOnGlobalLayoutListener {
+                Log.e("onCreateView:viewTreeObserver", "${binding?.autoPlay?.width} -- ${binding?.autoPlay?.height}")
+            }
+        }
+
         initView(indicator, false)
         binding!!.autoPlay.setOnCheckedChangeListener { buttonView: CompoundButton?, isChecked: Boolean ->
             mAutoPlay = isChecked

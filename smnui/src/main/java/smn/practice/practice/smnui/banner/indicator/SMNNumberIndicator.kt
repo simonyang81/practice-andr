@@ -6,7 +6,6 @@ import android.view.Gravity
 import android.widget.FrameLayout
 import android.widget.TextView
 import smn.practice.practice.smn.library.utils.DisplayUtil
-import smn.practice.practice.smnui.R
 
 class SMNNumberIndicator @JvmOverloads constructor(
     context: Context,

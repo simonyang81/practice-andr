@@ -11,7 +11,7 @@
     <td align="center">日志组件</td>
   </tr>
   <tr>
-    <td><img src="screenshots/bottom_tabs.png" width=249 height=480></td>
+    <td><img src="screenshots/bottom_tabs.png" width=735 height=240></td>
     <td><img src="screenshots/top_tabs.png" width=249 height=480></td>
     <td><img src="screenshots/log_demo.png" width=249 height=480></td>
   </tr>
